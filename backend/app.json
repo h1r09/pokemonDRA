@@ -1,0 +1,9 @@
+
+{
+    "name": "keroku-pokemon",
+    "buildpacks": [
+      {
+        "url": "heroku/gradle"
+      }
+    ]
+  }
