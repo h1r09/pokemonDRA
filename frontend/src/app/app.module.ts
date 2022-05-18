@@ -8,19 +8,25 @@ import { PokemonComponent } from './pokemon/pokemon.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { PokedexComponent } from './pokedex/pokedex.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ListadoPokemonComponent } from './listado-pokemon/listado-pokemon.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PokedexComponent,
+    ListadoPokemonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
