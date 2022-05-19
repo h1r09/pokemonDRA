@@ -101,29 +101,31 @@ h1, h2, h3, h4, h5 {
 
 
   &--normal {
-    background: linear-gradient(110deg, #FDBB2D 0%, #3A1C71 100%);
-    box-shadow: 0px 5px 20px -10px #3A1C71;
+    background: linear-gradient(110deg, #d49eab  0%, #79565c 100%);
+    box-shadow: 0px 10px 20px 5px #79565c;
     .card__type {
-      background-color: #C08A53;
+      background-color: #d49eab;
     }
   }
 
   &--water {
-  background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
-    box-shadow: 0px 5px 20px -10px #000851;
+  background: linear-gradient(120deg, #83a8ff   0%, #1154ea 100%);
+    box-shadow: 0px 10px 20px 5px #1154ea;
     .card__type {
-      background-color: #1CB5E0;
+      background-color: #83a8ff;
     }
   }
   &--electric {
 
-    background: linear-gradient(90deg, rgba(255,222,0,1) 34%, rgba(232,255,153,1) 83%);
+    background: linear-gradient(90deg, #fafa72  34%, #e2e32b 83%);
+    box-shadow: 0px 10px 20px 5px #e2e32b;
     .card__type {
-      background-color: #000;
+      background-color: #e2e32b;
     }
   }
   &--fire {
-    background: linear-gradient(0deg, rgba(199,24,0,1) 10%, rgba(252,194,69,1) 100%);
+    background: linear-gradient(0deg, #a24123  10%, #ac1c1d 100%);
+    box-shadow: 0px 10px 20px 5px #ac1c1d;
     .card__type {
       background-color: rgba(199,24,0,1);
     }
@@ -131,40 +133,117 @@ h1, h2, h3, h4, h5 {
 
   &--psychic {
 
-    background: linear-gradient(140deg, rgba(255,167,249,1) 0%, rgba(255,44,195,1) 39%, rgba(255,227,167,1) 100%);
+    background: linear-gradient(140deg, #fd1994 0%, rgba(255,44,195,1) 39%, #a82c6e 100%);
+    box-shadow: 0px 10px 20px 5px #a82c6e;
     .card__type {
       background: #ff2cc3;
     }
   }
 
   &--dark {
-    background: linear-gradient(20deg, rgba(25,25,25,1) 0%, rgba(16,11,50,1) 33%, rgba(92,2,73,1) 100%);
+    background: linear-gradient(20deg,  #5b597e 0%, #010506 33%, rgba(92,2,73,1) 100%);
+    box-shadow: 0px 10px 20px 5px rgba(25,25,25,1);
     .card__type {
-      background: #5c0249;
+      background: #5b597e;
     }
   }
   &--grass {
-    background: linear-gradient(140deg, rgba(196,218,61,1) 0%, rgba(110,127,14,1) 69%, rgba(39,80,9,1) 100%);
-
+    background: linear-gradient(140deg, rgba(196,218,61,1) 0%, #23d751 69%, #128344 100%);
+    box-shadow: 0px 10px 20px 5px 128344;
     .card__type {
-      background: #6e7f0e;
+      background: #23d751;
     }
   }
 
   &--ice {
-    background: linear-gradient(230deg, rgba(202,234,246,1) 0%, rgba(160,234,241,1) 46%, rgba(111,184,235,1) 100%);
+    background: linear-gradient(230deg, #cdf7ff 0%, #85d9fe 46%, rgba(111,184,235,1) 100%);
+    box-shadow: 0px 10px 20px 5px rgba(111,184,235,1);
     .card__type {
       background: #6fb8eb;
     }
   }
 
   &--fairy {
-    background: linear-gradient(45deg, rgba(255,230,240,1) 0%, rgba(255,197,224,1) 34%, rgba(255,166,185,1) 71%, rgba(255,138,149,1) 100%);
-
+    background: linear-gradient(45deg, #e91368 0%,  #961a45 34%, rgba(255,166,185,1) 71%);
+    box-shadow: 0px 10px 20px 5px #961a45;
     .card__type {
-      background: #ff8a95;
+      background: #e91368;
     }
   }
+
+  &--bug {
+    background: linear-gradient(110deg, #3ca153  0%, #1d4e27 100%);
+    box-shadow: 0px 10px 20px 5px #1d4e27;
+    .card__type {
+      background-color: #3ca153;
+    }
+  }
+
+  &--dragon {
+    background: linear-gradient(110deg, #5fd5eb  0%, #42939f 100%);
+    box-shadow: 0px 10px 20px 5px #42939f;
+    .card__type {
+      background-color: #5fd5eb;
+    }
+  }
+
+  &--fighting {
+    background: linear-gradient(110deg, #f86532   0%, #a24123 100%);
+    box-shadow: 0px 10px 20px 5px #a24123;
+    .card__type {
+      background-color: #f86532;
+    }
+  }
+
+  &--flying {
+    background: linear-gradient(110deg, #94b2c7  0%, #4c6c81 100%);
+    box-shadow: 0px 10px 20px 5px #4c6c81;
+    .card__type {
+      background-color: #94b2c7;
+    }
+  }
+
+  &--ghost {
+    background: linear-gradient(110deg, #936896   0%, #33326c 100%);
+    box-shadow: 0px 10px 20px 5px #33326c;
+    .card__type {
+      background-color: #936896;
+    }
+  }
+
+  &--ground {
+    background: linear-gradient(110deg, #ae732d   0%, #6e491f 100%);
+    box-shadow: 0px 10px 20px 5px #6e491f;
+    .card__type {
+      background-color: #ae732d;
+    }
+  }
+
+  &--poison {
+    background: linear-gradient(110deg, #a06bdf   0%, #622c8e 100%);
+    box-shadow: 0px 10px 20px 5px #622c8e;
+    .card__type {
+      background-color: #a06bdf;
+    }
+  }
+
+  &--rock {
+    background: linear-gradient(110deg, #8b3e22   0%, #48190b 100%);
+    box-shadow: 0px 10px 20px 5px #48190b;
+    .card__type {
+      background-color: #903f21  ;
+    }
+  }
+
+  &--steel {
+    background: linear-gradient(110deg, #43c69a   0%, #5f796e 100%);
+    box-shadow: 0px 10px 20px 5px #5f796e;
+    .card__type {
+      background-color: #43c69a  ;
+    }
+  }
+
+
 
   position: relative;
   transition: 0.4s;
