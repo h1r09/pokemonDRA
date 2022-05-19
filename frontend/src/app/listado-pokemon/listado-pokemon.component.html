@@ -1,11 +1,21 @@
+<!-- creo un div para que se muestren los 18 tipos de pokemon -->
 
+<div>
+
+
+</div>
 
   <div class="cartas" *ngFor="let pokemon of pokemons">
     <div id="cards">
       <div *ngFor="let type of pokemon.types; let i = index"></div>
       <figure class="card card--{{pokemon.types[0].type.name}}">
         <div class="card__image-container">
-          <img [src]="pokemon.sprites.other.home.front_shiny" class="card__image"/>
+          <!-- imagen más brillante -->
+        <!-- <img [src]="pokemon.sprites.other.home.front_shiny" class="card__image"/> -->
+        <!-- Imagen con colores normales -->
+        <img [src]="pokemon.sprites.other.home.front_default" class="card__image"/>
+        <!-- Imagen dibujos animados -->
+        <!-- <img [src]="pokemon.sprites.other.dream_world.front_default" class="card__image"/> -->
         </div>
 
         <figcaption class="card__caption">
@@ -20,45 +30,59 @@
             <tbody>
               <tr>
                 <th>HP</th>
-                <td>55</td>
+                <td>{{pokemon.stats[0].base_stat}}</td>
               </tr>
               <tr>
                 <th>Attack</th>
-                <td>55</td>
+                <td>{{pokemon.stats[1].base_stat}}</td>
               </tr>
 
-              <!-- <tr>
+              <tr>
                 <th>Defense</th>
-                <td>50</td>
+                <td>{{pokemon.stats[2].base_stat}}</td>
               </tr>
 
               <tr>
                 <th>Special Attack</th>
-                <td>45</td>
+                <td>{{pokemon.stats[3].base_stat}}</td>
               </tr>
               <tr>
                 <th>Special Defense</th>
-                <td>65</td>
+                <td>{{pokemon.stats[4].base_stat}}</td>
               </tr>
               <tr>
                 <th>Speed</th>
-                <td>55</td>
-              </tr> -->
+                <td>{{pokemon.stats[5].base_stat}}</td>
+              </tr>
             </tbody>
           </table>
 
-          <div class="card__abilities">
+          <!-- Meter condicional para ver si pokemon.abilities === 2
+               Esto es para saber si tiene habilidad oculta o no
+          -->
+
+          <div *ngIf="pokemon.abilities.length === 2; then thenBlock else elseBlock"></div>
+          <ng-template #thenBlock><div class="card__abilities">
             <h4 class="card__ability">
               <span class="card__label">Ability</span>
-              Run Away
+              {{pokemon.abilities[0].ability.name}}
             </h4>
             <h4 class="card__ability">
               <span class="card__label">Hidden Ability</span>
-              Anticipation
+              {{pokemon.abilities[1].ability.name}}
             </h4>
-          </div>
+          </div></ng-template>
+          <ng-template #elseBlock><div class="card__abilities">
+            <h4 class="card__ability">
+              <span class="card__label">Ability</span>
+              {{pokemon.abilities[0].ability.name}}
+            </h4>
+
+          </div></ng-template>
+
         </figcaption>
       </figure>
     </div>
   </div>
 
+s

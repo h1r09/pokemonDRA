@@ -243,6 +243,14 @@ h1, h2, h3, h4, h5 {
     }
   }
 
+  &--generico {
+    background: linear-gradient(110deg, #afb0b2   0%, #afb0b2 100%);
+    // box-shadow: 0px 10px 20px 5px #afb0b2;
+    .card__type {
+      background-color: #afb0b2  ;
+    }
+  }
+
 
 
   position: relative;
