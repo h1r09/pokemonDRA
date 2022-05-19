@@ -6,7 +6,7 @@ body {
 }
 
 img {
-  max-height: 150px;
+  max-height: 200px;
   margin: auto;
   display: inline-block;
 }
@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5 {
   width: 300px;
   padding: 1em;
   border-radius: 15px;
-  margin: 10px;
+  margin: 50px;
   background: #ddd;
   text-align: left;
 
@@ -69,6 +69,7 @@ h1, h2, h3, h4, h5 {
     font-size: 1.5em;
     font-weight: 700;
     letter-spacing: 0.02em;
+    text-transform: uppercase;
   }
 
   &__stats {
@@ -168,12 +169,12 @@ h1, h2, h3, h4, h5 {
   position: relative;
   transition: 0.4s;
 
-  // @for $i from 1 through 9 {
-  //   &:nth-child(#{$i}) {
-  //     $rotation: (5 - random(10)) + deg;
-  //     transform: translateY(0px) rotate($rotation);
-  //   }
-  // }
+   @for $i from 1 through 9 {
+     &:nth-child(#{$i}) {
+       $rotation: (5 - random(10)) + deg;
+       transform: translateY(0px) rotate($rotation);
+     }
+   }
 
   &:hover {
     z-index: 5;
@@ -187,6 +188,7 @@ h1, h2, h3, h4, h5 {
   &, & * { box-sizing: border-box; transition: 400ms; }
   display: inline-block;
   margin: 29px;
+  margin-bottom: 25px;
   padding-left: 15px;
   padding-right: 15px;
   width: 300px;
