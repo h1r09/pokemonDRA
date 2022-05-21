@@ -15,17 +15,30 @@ export class ListadoPokemonComponent implements OnInit {
   constructor(private http: PokemonService) { }
 
   ngOnInit(): void {
-    this.http.getAllPokemons()
-    .subscribe((response: any) => {
-      response.results.forEach((result: { name: string; }) => {
+     this.http.getAllPokemons()
+     .subscribe((response: any) => {
+       response.results.forEach((result: { name: string; }) => {
         this.http.getPokemonByName(result.name)
-        .subscribe((uniqResponse: any) => {
-          this.pokemons.push(uniqResponse);
-          console.log(this.pokemons);
-        });
-      });
-    })
+         .subscribe((uniqResponse: any) => {
+           this.pokemons.push(uniqResponse);
+           console.log(this.pokemons);
+         });
+       });
+     })
+
   }
+
+
+// result: { pokemon: {name: string;}}}}
+
+// result: any
+
+// result.pokemon.name
+
+ filtrarPokemon(id: number){
+
+ }
+
 
   searchPokemon(name: string) {
     this.pokemons = this.AllPokemons.filter((pokemon: any) => {

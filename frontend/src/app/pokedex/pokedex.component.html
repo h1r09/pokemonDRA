@@ -25,46 +25,56 @@
           <tbody>
             <tr>
               <th>HP</th>
-              <td>55</td>
+              <td>{{pokemon.stats[0].base_stat}}</td>
             </tr>
             <tr>
               <th>Attack</th>
-              <td>55</td>
+              <td>{{pokemon.stats[1].base_stat}}</td>
             </tr>
 
-            <!-- <tr>
+            <tr>
               <th>Defense</th>
-              <td>50</td>
+              <td>{{pokemon.stats[2].base_stat}}</td>
             </tr>
 
             <tr>
               <th>Special Attack</th>
-              <td>45</td>
+              <td>{{pokemon.stats[3].base_stat}}</td>
             </tr>
             <tr>
               <th>Special Defense</th>
-              <td>65</td>
+              <td>{{pokemon.stats[4].base_stat}}</td>
             </tr>
             <tr>
               <th>Speed</th>
-              <td>55</td>
-            </tr> -->
+              <td>{{pokemon.stats[5].base_stat}}</td>
+            </tr>
           </tbody>
         </table>
 
-        <div class="card__abilities">
+        <div *ngIf="pokemon.abilities.length === 2; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock><div class="card__abilities">
           <h4 class="card__ability">
             <span class="card__label">Ability</span>
-            Run Away
+            {{pokemon.abilities[0].ability.name}}
           </h4>
           <h4 class="card__ability">
             <span class="card__label">Hidden Ability</span>
-            Anticipation
+            {{pokemon.abilities[1].ability.name}}
           </h4>
-        </div>
+        </div></ng-template>
+        <ng-template #elseBlock><div class="card__abilities">
+          <h4 class="card__ability">
+            <span class="card__label">Ability</span>
+            {{pokemon.abilities[0].ability.name}}
+          </h4>
+
+        </div></ng-template>
       </figcaption>
     </figure>
-  </div> </ng-template>
+  </div>
+
+</ng-template>
 
   <ng-template #elseBlock>
     <div id="cards">
@@ -94,23 +104,23 @@
               <td>??</td>
             </tr>
 
-            <!-- <tr>
+            <tr>
               <th>Defense</th>
-              <td>50</td>
+              <td>??</td>
             </tr>
 
             <tr>
               <th>Special Attack</th>
-              <td>45</td>
+              <td>??</td>
             </tr>
             <tr>
               <th>Special Defense</th>
-              <td>65</td>
+              <td>??</td>
             </tr>
             <tr>
               <th>Speed</th>
-              <td>55</td>
-            </tr> -->
+              <td>??</td>
+            </tr>
           </tbody>
         </table>
 

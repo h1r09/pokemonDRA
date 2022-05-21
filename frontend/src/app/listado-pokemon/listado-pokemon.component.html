@@ -2,7 +2,9 @@
 
 <div>
 
-
+<button onclick="filtrarPokemon(1)">tipo 1</button>
+<button onclick="filtrarPokemon(2)">tipo 2</button>
+<button onclick="filtrarPokemon(3)">tipo 3</button>
 </div>
 
   <div class="cartas" *ngFor="let pokemon of pokemons">
@@ -14,7 +16,7 @@
         <!-- <img [src]="pokemon.sprites.other.home.front_shiny" class="card__image"/> -->
         <!-- Imagen con colores normales -->
         <img [src]="pokemon.sprites.other.home.front_default" class="card__image"/>
-        <!-- Imagen dibujos animados -->
+        <!-- Imagen dibujos animados - Se van un poco de tamaño, al ajustar algunos quedan demasiado pequeños-->
         <!-- <img [src]="pokemon.sprites.other.dream_world.front_default" class="card__image"/> -->
         </div>
 

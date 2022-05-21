@@ -149,7 +149,7 @@ h1, h2, h3, h4, h5 {
   }
   &--grass {
     background: linear-gradient(140deg, rgba(196,218,61,1) 0%, #23d751 69%, #128344 100%);
-    box-shadow: 0px 10px 20px 5px 128344;
+    box-shadow: 0px 10px 20px 5px #128344;
     .card__type {
       background: #23d751;
     }
