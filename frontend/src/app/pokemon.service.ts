@@ -11,7 +11,7 @@ export class PokemonService {
 
   // Método para obtener todos los pokemons, según veo en la API de pokeapi en 2021 el total de pokemons es 898 y de 18 tipos diferntes
   getAllPokemons() {
-    return this.http.get('https://pokeapi.co/api/v2/pokemon?limit=898');
+    return this.http.get('https://pokeapi.co/api/v2/pokemon?limit=100');
   }
 
   // Método para obtener un pokemon por su id

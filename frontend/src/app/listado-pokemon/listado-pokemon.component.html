@@ -1,10 +1,26 @@
 <!-- creo un div para que se muestren los 18 tipos de pokemon -->
 
-<div>
+<div class="tipos">
 
-<button onclick="filtrarPokemon(1)">tipo 1</button>
-<button onclick="filtrarPokemon(2)">tipo 2</button>
-<button onclick="filtrarPokemon(3)">tipo 3</button>
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoNORMAL.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoFIGHTING.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoFLYING.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoPOISON.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoGROUND.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoROCK.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoBUG.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoGHOST.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoSTEEL.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoFIRE.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoWATER.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoGRASS.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoELECTRIC.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoPSYCHIC.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoICE.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoDRAGON.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoDARK.png" alt="" />
+  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoFAIRY.png" alt="" />
+
 </div>
 
   <div class="cartas" *ngFor="let pokemon of pokemons">
@@ -86,5 +102,3 @@
       </figure>
     </div>
   </div>
-
-s
