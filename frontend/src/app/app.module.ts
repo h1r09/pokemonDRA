@@ -12,6 +12,14 @@ import { PokedexComponent } from './pokedex/pokedex.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ListadoPokemonComponent } from './listado-pokemon/listado-pokemon.component';
 import { SearchComponent } from './search/search.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
+import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faEye as eye } from '@fortawesome/free-solid-svg-icons';
+import { faEyeSlash as eyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faSearch as search } from '@fortawesome/free-solid-svg-icons';
+
 
 @NgModule({
   declarations: [
@@ -28,9 +36,17 @@ import { SearchComponent } from './search/search.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    // Add multiple icons to the library
+    library.addIcons(fasStar, farStar, eye, eyeSlash, search);
+  }
+}

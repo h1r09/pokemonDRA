@@ -6,10 +6,13 @@ import { PokemonService } from '../pokemon.service'; // Importamos el servicio d
   templateUrl: './listado-pokemon.component.html',
   styleUrls: ['./listado-pokemon.component.scss'],
 })
+
 export class ListadoPokemonComponent implements OnInit {
+
   pokemons: any[] = [];
   private AllPokemons: any = this.pokemons;
   name: string | undefined;
+  vistos: any[] = [1,4,6,7,16]
 
   tipos: any[] = [
     'tipoNORMAL',
@@ -88,4 +91,13 @@ export class ListadoPokemonComponent implements OnInit {
       return pokemon.name.toLowerCase().includes(name.toLowerCase());
     });
   }
+
+  comprobarVisto(pokemon: any){
+    if(this.vistos.includes(pokemon.id)){
+      return true
+    }else{
+      return false
+    }
+  }
+
 }
