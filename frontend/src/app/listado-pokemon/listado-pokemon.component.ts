@@ -11,7 +11,26 @@ export class ListadoPokemonComponent implements OnInit {
   private AllPokemons: any = this.pokemons;
   name: string | undefined;
 
-  tipos: any[] = ["tipoNORMAL", "tipoFIGHTING", "tipoFLYING", "tipoPOISON", "tipoGROUND", "tipoROCK", "tipoBUG", "tipoGHOST", "tipoSTEEL", "tipoFIRE", "tipoWATER", "tipoGRASS", "tipoELECTRIC", "tipoPSYCHIC", "tipoICE", "tipoDRAGON", "tipoDARK", "tipoFAIRY"];
+  tipos: any[] = [
+    'tipoNORMAL',
+    'tipoFIGHTING',
+    'tipoFLYING',
+    'tipoPOISON',
+    'tipoGROUND',
+    'tipoROCK',
+    'tipoBUG',
+    'tipoGHOST',
+    'tipoSTEEL',
+    'tipoFIRE',
+    'tipoWATER',
+    'tipoGRASS',
+    'tipoELECTRIC',
+    'tipoPSYCHIC',
+    'tipoICE',
+    'tipoDRAGON',
+    'tipoDARK',
+    'tipoFAIRY',
+  ];
 
   constructor(private http: PokemonService) {}
 
@@ -28,7 +47,6 @@ export class ListadoPokemonComponent implements OnInit {
       });
     });
   }
-
 
   recargarPagina(): void {
     window.location.reload();

@@ -27,6 +27,7 @@
 <!-- Recorro el array tipos e imprimo las imagenes junto a los id de los tipos -->
 <!-- si cambia el orden del array tipos, no funcionaría -->
 <div class="tipos">
+  <img [routerLink]="['/pokedex']" routerLinkActive="router-link-active" src="assets/pokedex1.png" alt="" />
   <img (click)="mostrarTodos()" src="assets/TiposPokemon/tipoALL.png" alt="" />
   <img
     *ngFor="let tipo of tipos; let i = index"

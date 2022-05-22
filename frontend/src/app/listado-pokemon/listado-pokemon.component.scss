@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300,700');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300,700");
 body {
   font-family: "Open Sans", Helvetica, sans-serif;
   text-align: center;
@@ -10,11 +10,14 @@ img {
   margin: auto;
   display: inline-block;
 }
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 0;
   font-weight: 400;
 }
-
 
 .card {
   display: inline-block;
@@ -63,7 +66,6 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 3px;
   }
 
-
   &__name {
     font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
     text-align: center;
@@ -82,11 +84,11 @@ h1, h2, h3, h4, h5 {
     }
     width: 100%;
 
-    th, td {
+    th,
+    td {
       width: 50%;
       padding: 0.25em 0.5em 0;
     }
-
   }
 
   &__abilities {
@@ -100,9 +102,8 @@ h1, h2, h3, h4, h5 {
 
   box-shadow: 0px 5px 20px -10px #111111;
 
-
   &--normal {
-    background: linear-gradient(110deg, #d49eab  0%, #79565c 100%);
+    background: linear-gradient(110deg, #d49eab 0%, #79565c 100%);
     box-shadow: 0px 10px 20px 5px #79565c;
     .card__type {
       background-color: #d49eab;
@@ -110,31 +111,34 @@ h1, h2, h3, h4, h5 {
   }
 
   &--water {
-  background: linear-gradient(120deg, #83a8ff   0%, #1154ea 100%);
+    background: linear-gradient(120deg, #83a8ff 0%, #1154ea 100%);
     box-shadow: 0px 10px 20px 5px #1154ea;
     .card__type {
       background-color: #83a8ff;
     }
   }
   &--electric {
-
-    background: linear-gradient(90deg, #fafa72  34%, #e2e32b 83%);
+    background: linear-gradient(90deg, #fafa72 34%, #e2e32b 83%);
     box-shadow: 0px 10px 20px 5px #e2e32b;
     .card__type {
       background-color: #e2e32b;
     }
   }
   &--fire {
-    background: linear-gradient(0deg, #a24123  10%, #ac1c1d 100%);
+    background: linear-gradient(0deg, #a24123 10%, #ac1c1d 100%);
     box-shadow: 0px 10px 20px 5px #ac1c1d;
     .card__type {
-      background-color: rgba(199,24,0,1);
+      background-color: rgba(199, 24, 0, 1);
     }
   }
 
   &--psychic {
-
-    background: linear-gradient(140deg, #fd1994 0%, rgba(255,44,195,1) 39%, #a82c6e 100%);
+    background: linear-gradient(
+      140deg,
+      #fd1994 0%,
+      rgba(255, 44, 195, 1) 39%,
+      #a82c6e 100%
+    );
     box-shadow: 0px 10px 20px 5px #a82c6e;
     .card__type {
       background: #ff2cc3;
@@ -142,14 +146,24 @@ h1, h2, h3, h4, h5 {
   }
 
   &--dark {
-    background: linear-gradient(20deg,  #5b597e 0%, #010506 33%, rgba(92,2,73,1) 100%);
-    box-shadow: 0px 10px 20px 5px rgba(25,25,25,1);
+    background: linear-gradient(
+      20deg,
+      #5b597e 0%,
+      #010506 33%,
+      rgba(92, 2, 73, 1) 100%
+    );
+    box-shadow: 0px 10px 20px 5px rgba(25, 25, 25, 1);
     .card__type {
       background: #5b597e;
     }
   }
   &--grass {
-    background: linear-gradient(140deg, rgba(196,218,61,1) 0%, #23d751 69%, #128344 100%);
+    background: linear-gradient(
+      140deg,
+      rgba(196, 218, 61, 1) 0%,
+      #23d751 69%,
+      #128344 100%
+    );
     box-shadow: 0px 10px 20px 5px #128344;
     .card__type {
       background: #23d751;
@@ -157,15 +171,25 @@ h1, h2, h3, h4, h5 {
   }
 
   &--ice {
-    background: linear-gradient(230deg, #cdf7ff 0%, #85d9fe 46%, rgba(111,184,235,1) 100%);
-    box-shadow: 0px 10px 20px 5px rgba(111,184,235,1);
+    background: linear-gradient(
+      230deg,
+      #cdf7ff 0%,
+      #85d9fe 46%,
+      rgba(111, 184, 235, 1) 100%
+    );
+    box-shadow: 0px 10px 20px 5px rgba(111, 184, 235, 1);
     .card__type {
       background: #6fb8eb;
     }
   }
 
   &--fairy {
-    background: linear-gradient(45deg, #e91368 0%,  #961a45 34%, rgba(255,166,185,1) 71%);
+    background: linear-gradient(
+      45deg,
+      #e91368 0%,
+      #961a45 34%,
+      rgba(255, 166, 185, 1) 71%
+    );
     box-shadow: 0px 10px 20px 5px #961a45;
     .card__type {
       background: #e91368;
@@ -173,7 +197,7 @@ h1, h2, h3, h4, h5 {
   }
 
   &--bug {
-    background: linear-gradient(110deg, #3ca153  0%, #1d4e27 100%);
+    background: linear-gradient(110deg, #3ca153 0%, #1d4e27 100%);
     box-shadow: 0px 10px 20px 5px #1d4e27;
     .card__type {
       background-color: #3ca153;
@@ -181,7 +205,7 @@ h1, h2, h3, h4, h5 {
   }
 
   &--dragon {
-    background: linear-gradient(110deg, #5fd5eb  0%, #42939f 100%);
+    background: linear-gradient(110deg, #5fd5eb 0%, #42939f 100%);
     box-shadow: 0px 10px 20px 5px #42939f;
     .card__type {
       background-color: #5fd5eb;
@@ -189,7 +213,7 @@ h1, h2, h3, h4, h5 {
   }
 
   &--fighting {
-    background: linear-gradient(110deg, #f86532   0%, #a24123 100%);
+    background: linear-gradient(110deg, #f86532 0%, #a24123 100%);
     box-shadow: 0px 10px 20px 5px #a24123;
     .card__type {
       background-color: #f86532;
@@ -197,7 +221,7 @@ h1, h2, h3, h4, h5 {
   }
 
   &--flying {
-    background: linear-gradient(110deg, #94b2c7  0%, #4c6c81 100%);
+    background: linear-gradient(110deg, #94b2c7 0%, #4c6c81 100%);
     box-shadow: 0px 10px 20px 5px #4c6c81;
     .card__type {
       background-color: #94b2c7;
@@ -205,7 +229,7 @@ h1, h2, h3, h4, h5 {
   }
 
   &--ghost {
-    background: linear-gradient(110deg, #936896   0%, #33326c 100%);
+    background: linear-gradient(110deg, #936896 0%, #33326c 100%);
     box-shadow: 0px 10px 20px 5px #33326c;
     .card__type {
       background-color: #936896;
@@ -213,7 +237,7 @@ h1, h2, h3, h4, h5 {
   }
 
   &--ground {
-    background: linear-gradient(110deg, #ae732d   0%, #6e491f 100%);
+    background: linear-gradient(110deg, #ae732d 0%, #6e491f 100%);
     box-shadow: 0px 10px 20px 5px #6e491f;
     .card__type {
       background-color: #ae732d;
@@ -221,7 +245,7 @@ h1, h2, h3, h4, h5 {
   }
 
   &--poison {
-    background: linear-gradient(110deg, #a06bdf   0%, #622c8e 100%);
+    background: linear-gradient(110deg, #a06bdf 0%, #622c8e 100%);
     box-shadow: 0px 10px 20px 5px #622c8e;
     .card__type {
       background-color: #a06bdf;
@@ -229,30 +253,28 @@ h1, h2, h3, h4, h5 {
   }
 
   &--rock {
-    background: linear-gradient(110deg, #8b3e22   0%, #48190b 100%);
+    background: linear-gradient(110deg, #8b3e22 0%, #48190b 100%);
     box-shadow: 0px 10px 20px 5px #48190b;
     .card__type {
-      background-color: #903f21  ;
+      background-color: #903f21;
     }
   }
 
   &--steel {
-    background: linear-gradient(110deg, #43c69a   0%, #5f796e 100%);
+    background: linear-gradient(110deg, #43c69a 0%, #5f796e 100%);
     box-shadow: 0px 10px 20px 5px #5f796e;
     .card__type {
-      background-color: #43c69a  ;
+      background-color: #43c69a;
     }
   }
 
   &--generico {
-    background: linear-gradient(110deg, #afb0b2   0%, #afb0b2 100%);
+    background: linear-gradient(110deg, #afb0b2 0%, #afb0b2 100%);
     // box-shadow: 0px 10px 20px 5px #afb0b2;
     .card__type {
-      background-color: #afb0b2  ;
+      background-color: #afb0b2;
     }
   }
-
-
 
   position: relative;
   transition: 0.4s;
@@ -267,13 +289,16 @@ h1, h2, h3, h4, h5 {
   &:hover {
     z-index: 5;
     box-shadow: 0px 13px 30px -15px #000000;
-    transform:translateY(-10px);
+    transform: translateY(-10px);
   }
-
 }
 
 .cartas {
-  &, & * { box-sizing: border-box; transition: 400ms; }
+  &,
+  & * {
+    box-sizing: border-box;
+    transition: 400ms;
+  }
   display: inline-block;
   margin: 29px;
   margin-bottom: 25px;
@@ -284,34 +309,29 @@ h1, h2, h3, h4, h5 {
   border-radius: 20px;
 }
 .tipos {
-   display: inline-block;
-   margin: 5;
-   margin-bottom: 5px;
-   padding-left: 5px;
-   padding-right: 5px;
-   text-align: center;
-
+  display: inline-block;
+  margin: 5;
+  margin-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
 
   //  img {
   //   width: 105px;
   //   height: 130px;
   // }
 
-   img {
-     width: 5.25%;
-     height: 6%;
-   }
-
-     :hover {
-
-      transform:translateY(-20px);
-     }
-
-
-
+  img {
+    width: 5.25%;
+    height: 6%;
   }
-  .orden {
-    display: inline-block;
-    margin: 5px;
-    align-items: center;
+
+  :hover {
+    transform: translateY(-20px);
   }
+}
+.orden {
+  display: inline-block;
+  margin: 5px;
+  align-items: center;
+}
