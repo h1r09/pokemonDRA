@@ -1,104 +1,124 @@
 <!-- creo un div para que se muestren los 18 tipos de pokemon -->
 
+<!-- <div class="tipos">
+
+  <img (click)="mostrarTodos()" src="assets/TiposPokemon/tipoALL.png" alt="" />
+  <img (click)="filtrarPokemon(1)" src="assets/TiposPokemon/tipoNORMAL.png" alt="" />
+  <img src="assets/TiposPokemon/tipoFIGHTING.png" alt="" />
+  <img src="assets/TiposPokemon/tipoFLYING.png" alt="" />
+  <img src="assets/TiposPokemon/tipoPOISON.png" alt="" />
+  <img src="assets/TiposPokemon/tipoGROUND.png" alt="" />
+  <img src="assets/TiposPokemon/tipoROCK.png" alt="" />
+  <img src="assets/TiposPokemon/tipoBUG.png" alt="" />
+  <img src="assets/TiposPokemon/tipoGHOST.png" alt="" />
+  <img src="assets/TiposPokemon/tipoSTEEL.png" alt="" />
+  <img src="assets/TiposPokemon/tipoFIRE.png" alt="" />
+  <img src="assets/TiposPokemon/tipoWATER.png" alt="" />
+  <img src="assets/TiposPokemon/tipoGRASS.png" alt="" />
+  <img src="assets/TiposPokemon/tipoELECTRIC.png" alt="" />
+  <img src="assets/TiposPokemon/tipoPSYCHIC.png" alt="" />
+  <img src="assets/TiposPokemon/tipoICE.png" alt="" />
+  <img src="assets/TiposPokemon/tipoDRAGON.png" alt="" />
+  <img src="assets/TiposPokemon/tipoDARK.png" alt="" />
+  <img src="assets/TiposPokemon/tipoFAIRY.png" alt="" />
+
+</div> -->
+
+<!-- Recorro el array tipos e imprimo las imagenes junto a los id de los tipos -->
+<!-- si cambia el orden del array tipos, no funcionaría -->
 <div class="tipos">
-
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoNORMAL.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoFIGHTING.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoFLYING.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoPOISON.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoGROUND.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoROCK.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoBUG.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoGHOST.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoSTEEL.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoFIRE.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoWATER.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoGRASS.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoELECTRIC.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoPSYCHIC.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoICE.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoDRAGON.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoDARK.png" alt="" />
-  <img [routerLink]="['/pokedex']" class="pokedexHeader" src="assets/TiposPokemon/tipoFAIRY.png" alt="" />
-
+  <img (click)="mostrarTodos()" src="assets/TiposPokemon/tipoALL.png" alt="" />
+  <img
+    *ngFor="let tipo of tipos; let i = index"
+    (click)="filtrarPokemon(i + 1)"
+    src="assets/TiposPokemon/{{ tipo }}.png"
+    alt=""
+  />
 </div>
 
-  <div class="cartas" *ngFor="let pokemon of pokemons">
-    <div id="cards">
-      <div *ngFor="let type of pokemon.types; let i = index"></div>
-      <figure class="card card--{{pokemon.types[0].type.name}}">
-        <div class="card__image-container">
-          <!-- imagen más brillante -->
+<app-search (emitSearch)="searchPokemon($event)"></app-search>
+
+<div class="cartas" *ngFor="let pokemon of pokemons">
+  <div id="cards">
+    <div *ngFor="let type of pokemon.types; let i = index"></div>
+    <figure class="card card--{{ pokemon.types[0].type.name }}">
+      <div class="card__image-container">
+        <!-- imagen más brillante -->
         <!-- <img [src]="pokemon.sprites.other.home.front_shiny" class="card__image"/> -->
         <!-- Imagen con colores normales -->
-        <img [src]="pokemon.sprites.other.home.front_default" class="card__image"/>
+        <img
+          [src]="pokemon.sprites.other.home.front_default"
+          class="card__image"
+        />
         <!-- Imagen dibujos animados - Se van un poco de tamaño, al ajustar algunos quedan demasiado pequeños-->
         <!-- <img [src]="pokemon.sprites.other.dream_world.front_default" class="card__image"/> -->
+      </div>
+
+      <figcaption class="card__caption">
+        <h1 class="card__name">{{ pokemon.name }}</h1>
+        <div class="orden" *ngFor="let type of pokemon.types; let i = index">
+          <h3 class="card__type">{{ pokemon.types[i].type.name }}</h3>
         </div>
 
-        <figcaption class="card__caption">
-          <h1 class="card__name">{{ pokemon.name }}</h1>
-          <div *ngFor="let type of pokemon.types; let i = index">
+        <table class="card__stats">
+          <tbody>
+            <tr>
+              <th>HP</th>
+              <td>{{ pokemon.stats[0].base_stat }}</td>
+            </tr>
+            <tr>
+              <th>Attack</th>
+              <td>{{ pokemon.stats[1].base_stat }}</td>
+            </tr>
 
-            <h3 class="card__type">{{pokemon.types[0].type.name}}</h3>
-          </div>
+            <tr>
+              <th>Defense</th>
+              <td>{{ pokemon.stats[2].base_stat }}</td>
+            </tr>
 
+            <tr>
+              <th>Special Attack</th>
+              <td>{{ pokemon.stats[3].base_stat }}</td>
+            </tr>
+            <tr>
+              <th>Special Defense</th>
+              <td>{{ pokemon.stats[4].base_stat }}</td>
+            </tr>
+            <tr>
+              <th>Speed</th>
+              <td>{{ pokemon.stats[5].base_stat }}</td>
+            </tr>
+          </tbody>
+        </table>
 
-          <table class="card__stats">
-            <tbody>
-              <tr>
-                <th>HP</th>
-                <td>{{pokemon.stats[0].base_stat}}</td>
-              </tr>
-              <tr>
-                <th>Attack</th>
-                <td>{{pokemon.stats[1].base_stat}}</td>
-              </tr>
-
-              <tr>
-                <th>Defense</th>
-                <td>{{pokemon.stats[2].base_stat}}</td>
-              </tr>
-
-              <tr>
-                <th>Special Attack</th>
-                <td>{{pokemon.stats[3].base_stat}}</td>
-              </tr>
-              <tr>
-                <th>Special Defense</th>
-                <td>{{pokemon.stats[4].base_stat}}</td>
-              </tr>
-              <tr>
-                <th>Speed</th>
-                <td>{{pokemon.stats[5].base_stat}}</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <!-- Meter condicional para ver si pokemon.abilities === 2
+        <!-- Meter condicional para ver si pokemon.abilities === 2
                Esto es para saber si tiene habilidad oculta o no
           -->
 
-          <div *ngIf="pokemon.abilities.length === 2; then thenBlock else elseBlock"></div>
-          <ng-template #thenBlock><div class="card__abilities">
+        <div
+          *ngIf="pokemon.abilities.length === 2; then thenBlock; else elseBlock"
+        ></div>
+        <ng-template #thenBlock
+          ><div class="card__abilities">
             <h4 class="card__ability">
               <span class="card__label">Ability</span>
-              {{pokemon.abilities[0].ability.name}}
+              {{ pokemon.abilities[0].ability.name }}
             </h4>
             <h4 class="card__ability">
               <span class="card__label">Hidden Ability</span>
-              {{pokemon.abilities[1].ability.name}}
+              {{ pokemon.abilities[1].ability.name }}
             </h4>
-          </div></ng-template>
-          <ng-template #elseBlock><div class="card__abilities">
+          </div></ng-template
+        >
+        <ng-template #elseBlock
+          ><div class="card__abilities">
             <h4 class="card__ability">
               <span class="card__label">Ability</span>
-              {{pokemon.abilities[0].ability.name}}
+              {{ pokemon.abilities[0].ability.name }}
             </h4>
-
-          </div></ng-template>
-
-        </figcaption>
-      </figure>
-    </div>
+          </div></ng-template
+        >
+      </figcaption>
+    </figure>
   </div>
+</div>

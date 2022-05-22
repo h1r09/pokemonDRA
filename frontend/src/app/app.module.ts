@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PokedexComponent } from './pokedex/pokedex.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ListadoPokemonComponent } from './listado-pokemon/listado-pokemon.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ListadoPokemonComponent } from './listado-pokemon/listado-pokemon.compo
     HeaderComponent,
     FooterComponent,
     PokedexComponent,
-    ListadoPokemonComponent
+    ListadoPokemonComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

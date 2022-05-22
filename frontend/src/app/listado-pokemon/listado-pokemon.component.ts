@@ -11,30 +11,22 @@ export class ListadoPokemonComponent implements OnInit {
   private AllPokemons: any = this.pokemons;
   name: string | undefined;
 
+  tipos: any[] = ["tipoNORMAL", "tipoFIGHTING", "tipoFLYING", "tipoPOISON", "tipoGROUND", "tipoROCK", "tipoBUG", "tipoGHOST", "tipoSTEEL", "tipoFIRE", "tipoWATER", "tipoGRASS", "tipoELECTRIC", "tipoPSYCHIC", "tipoICE", "tipoDRAGON", "tipoDARK", "tipoFAIRY"];
+
   constructor(private http: PokemonService) {}
 
   ngOnInit(): void {
-     this.http.getAllPokemons().subscribe((response: any) => {
-       response.results.forEach((result: { name: string }) => {
-         this.http
-           .getPokemonByName(result.name)
-           .subscribe((uniqResponse: any) => {
-             this.pokemons.push(uniqResponse);
-             console.log(this.pokemons);
-           });
-       });
-     });
-
-    // this.http.getTypeById(1).subscribe((response: any) => {
-    //   response.pokemon.forEach((pokemon: any) => {
-    //     this.http
-    //       .getPokemonByName(pokemon.pokemon.name)
-    //       .subscribe((uniqResponse: any) => {
-    //         this.pokemons.push(uniqResponse);
-    //         console.log(this.pokemons);
-    //       });
-    //   });
-    // });
+    // this.pokemons = [];
+    this.http.getSomePokemons(20).subscribe((response: any) => {
+      response.results.forEach((result: { name: string }) => {
+        this.http
+          .getPokemonByName(result.name)
+          .subscribe((uniqResponse: any) => {
+            this.pokemons.push(uniqResponse);
+            console.log(this.pokemons);
+          });
+      });
+    });
   }
 
 
@@ -42,6 +34,20 @@ export class ListadoPokemonComponent implements OnInit {
     window.location.reload();
   }
 
+  mostrarTodos(): void {
+    this.pokemons = [];
+    this.http.getAllPokemons().subscribe((response: any) => {
+      response.results.forEach((result: { name: string }) => {
+        this.http
+          .getPokemonByName(result.name)
+          .subscribe((uniqResponse: any) => {
+            this.pokemons.push(uniqResponse);
+            console.log(this.pokemons);
+          });
+      });
+    });
+    this.AllPokemons = this.pokemons;
+  }
 
   filtrarPokemon(id: number) {
     this.pokemons = [];
@@ -55,7 +61,8 @@ export class ListadoPokemonComponent implements OnInit {
           });
       });
     });
-    window.location.reload();
+    this.AllPokemons = this.pokemons;
+    // window.location.reload();
   }
 
   searchPokemon(name: string) {

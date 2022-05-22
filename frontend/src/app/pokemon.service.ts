@@ -14,6 +14,10 @@ export class PokemonService {
     return this.http.get('https://pokeapi.co/api/v2/pokemon?limit=100');
   }
 
+  getSomePokemons(limit: number) {
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`);
+  }
+
   // Método para obtener un pokemon por su id
   getPokemonById(id: number) {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
