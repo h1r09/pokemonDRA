@@ -61,16 +61,27 @@
           <h3 class="card__type">{{ pokemon.types[i].type.name }}</h3>
         </div>
 
-        <div *ngIf="comprobarVisto(pokemon); then thenBlock2 else elseBlock2"></div>
-<ng-template #thenBlock2><div class="card__eye"><button class="button-35"><fa-icon [icon]="['fas', 'eye']"></fa-icon></button></div></ng-template>
-<ng-template #elseBlock2><div class="card__eye"><button class="button-35"><fa-icon [icon]="['fas', 'eye-slash']"></fa-icon></button></div></ng-template>
-
+        <div
+          *ngIf="comprobarVisto(pokemon); then thenBlock2; else elseBlock2"
+        ></div>
+        <ng-template #thenBlock2
+          ><div class="card__eye">
+            <button (click)="removePokemon(pokemon)" class="button-35">
+              <fa-icon [icon]="['fas', 'eye']"></fa-icon>
+              <!-- <img class="ojo" src="assets/eye.png" alt=""> -->
+            </button></div
+        ></ng-template>
+        <ng-template #elseBlock2
+          ><div class="card__eye">
+            <button (click)="savePokemon(pokemon.id)" class="button-35">
+              <fa-icon [icon]="['fas', 'eye-slash']"></fa-icon>
+            </button></div
+        ></ng-template>
 
         <!-- <div class="card__eye"><button class="button-35"><fa-icon [icon]="eyeSlash"></fa-icon></button></div> -->
 
         <!-- <mat-fab class="card__eye">VISTO</mat-fab> -->
         <!-- <img class="card__eye" src="assets/ojo.png" alt="" /> -->
-
 
         <table class="card__stats">
           <tbody>

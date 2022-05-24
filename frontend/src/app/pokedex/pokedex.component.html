@@ -1,3 +1,5 @@
+<app-search (emitSearch)="searchPokemon($event)"></app-search>
+
 <div class="cartas" *ngFor="let pokemon of pokemons">
   <div *ngIf="comprobarVisto(pokemon); then thenBlock; else elseBlock"></div>
 
@@ -23,6 +25,11 @@
             <h3 class="card__type">{{ pokemon.types[i].type.name }}</h3>
           </div>
 
+          <div class="card__eye">
+            <button (click)="removePokemon(pokemon)" class="button-35">
+              <fa-icon [icon]="['fas', 'eye']"></fa-icon>
+            </button>
+          </div>
           <table class="card__stats">
             <tbody>
               <tr>
@@ -94,7 +101,7 @@
     <div id="cards">
       <figure class="card card--generico">
         <div class="card__image-container">
-          <!-- <img [src]="pokemon.sprites.other.home.front_shiny" class="card__image" id="imagen"/> -->
+          <!-- //<img [src]="pokemon.sprites.other.home.front_shiny" class="card__image" id="imagen"/> -->
           <img
             src="assets/gifs/pikachuEnfadado.gif"
             class="card__image"

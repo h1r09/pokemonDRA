@@ -1,18 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../pokemon.service'; // Importamos el servicio de pokemon para poder usar sus métodos
+import { BackendService } from '../backend.service';
+import { Pokemon } from '../pokemon';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listado-pokemon',
   templateUrl: './listado-pokemon.component.html',
   styleUrls: ['./listado-pokemon.component.scss'],
 })
-
 export class ListadoPokemonComponent implements OnInit {
-
+  pokemon?: Pokemon;
   pokemons: any[] = [];
   private AllPokemons: any = this.pokemons;
   name: string | undefined;
-  vistos: any[] = [1,4,6,7,16]
+
+  //declaro e inicializo un array de id de pokemons
+  vistos: any[] = []
+  // vistos2: any[] = [];
+  // vistos: Observable<Pokemon[]> = this.backHttp.getViewedPokemons();
 
   tipos: any[] = [
     'tipoNORMAL',
@@ -35,20 +41,23 @@ export class ListadoPokemonComponent implements OnInit {
     'tipoFAIRY',
   ];
 
-  constructor(private http: PokemonService) {}
+  constructor(private http: PokemonService, private backHttp: BackendService) {}
 
   ngOnInit(): void {
     // this.pokemons = [];
+    // this.vistos = [];
     this.http.getSomePokemons(20).subscribe((response: any) => {
       response.results.forEach((result: { name: string }) => {
         this.http
           .getPokemonByName(result.name)
           .subscribe((uniqResponse: any) => {
             this.pokemons.push(uniqResponse);
-            console.log(this.pokemons);
+            // console.log(this.pokemons);
           });
       });
     });
+    this.getPokemons();
+    // console.log(this.vistos);
   }
 
   recargarPagina(): void {
@@ -63,7 +72,7 @@ export class ListadoPokemonComponent implements OnInit {
           .getPokemonByName(result.name)
           .subscribe((uniqResponse: any) => {
             this.pokemons.push(uniqResponse);
-            console.log(this.pokemons);
+            // console.log(this.pokemons);
           });
       });
     });
@@ -78,13 +87,22 @@ export class ListadoPokemonComponent implements OnInit {
           .getPokemonByName(pokemon.pokemon.name)
           .subscribe((uniqResponse: any) => {
             this.pokemons.push(uniqResponse);
-            console.log(this.pokemons);
+            // console.log(this.pokemons);
           });
       });
     });
     this.AllPokemons = this.pokemons;
     // window.location.reload();
   }
+
+//  getVistos(): void {
+//   this.vistos = [];
+//   this.backHttp.getViewedPokemons().subscribe((response: any) => {
+//     response.pokemon.forEach((pokemon: any) => {
+//       this.vistos.push(pokemon.pokemon.id);
+//     });
+//   });
+// }
 
   searchPokemon(name: string) {
     this.pokemons = this.AllPokemons.filter((pokemon: any) => {
@@ -100,4 +118,55 @@ export class ListadoPokemonComponent implements OnInit {
     }
   }
 
+  comprobarVisto3(pokemon: any) {
+    if (this.vistos.find((p) => p.id === pokemon.id)) {
+      return true;
+    }
+    return false;
+  }
+  // comprobarVisto2(pokemon: any) {
+  //   if (this.vistos2.find((p) => p === pokemon.id)) {
+  //     return true;
+  //   }
+  //   return false;
+  // }
+
+  // addVisto(pokemon: any) {
+  //   this.vistos2.push(pokemon.id);
+  //   this.backHttp.save(pokemon).subscribe();
+  // }
+
+  //metodo para guardar un pokemon en la base de datos
+  savePokemon(id: number): void {
+
+      this.backHttp.savePokemon({ id } as Pokemon)
+      .subscribe(poke => {
+        this.vistos.push(poke);
+      });
+      window.location.reload();
+  }
+
+  removePokemon(pokemon: any): void {
+
+      this.backHttp.removePokemon(pokemon.id).subscribe( () => window.location.reload());
+
+  }
+
+   getPokemons(): void {
+     this.backHttp.getViewedPokemons().subscribe((response: any) => {
+       response.forEach((pokemon: any) => {
+         this.vistos.push(pokemon.id);
+       });
+     });
+  }
+
+  // getPokemons(): void {
+  //   this.backHttp.getViewedPokemons().subscribe((response: any) => {
+  //     this.vistos = response.results.map((pokemon: any) => {
+  //       return {
+  //         id: pokemon.id
+
+  //       };
+  //   });
+  // } );}
 }
