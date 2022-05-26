@@ -5,8 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name = "pokemon")
@@ -14,9 +14,16 @@ import javax.validation.constraints.NotBlank;
 public class Pokemon {
     
     @Id
-    private Long id;
+    // @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+  
+    // Creo un id secundario para el idPokemon ya que si empleo el id de la tabla pokemon, me ha dado varios errores.
+    // @NotNull(message = "Name is mandatory")
+    // private Number idPokemon;
 
-    public Pokemon(Long id) {
+    public Pokemon() {}
+
+    public Pokemon(int id) {
         this.id = id;
     }
 
@@ -28,9 +35,17 @@ public class Pokemon {
         this.id = id;
     }
 
-    public String toString () {
-        return "Pokemon{" +
-                "id=" + id +
-                '}';
+    // public Number getIdPokemon() {
+    //     return this.idPokemon;
+    // }
+
+    // public void setIdPokemon(int idPokemon) {
+    //     this.idPokemon = idPokemon;
+    // }
+
+
+    @Override
+    public String toString() {
+        return "Pokemon [idPokemon= " + id + "]";
     }
 }

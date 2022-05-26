@@ -7,7 +7,7 @@ import { Pokemon } from './pokemon';
   providedIn: 'root'
 })
 export class BackendService {
-  private url = 'http://localhost:8081/api/pokemons';  // URL to web api
+  private url = 'http://localhost:8081/api/pokemon';  // URL to web api
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };

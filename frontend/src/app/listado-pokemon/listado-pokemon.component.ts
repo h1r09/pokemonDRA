@@ -148,8 +148,8 @@ export class ListadoPokemonComponent implements OnInit {
 
   removePokemon(pokemon: any): void {
 
-      this.backHttp.removePokemon(pokemon.id).subscribe( () => window.location.reload());
-
+      this.backHttp.removePokemon(pokemon.id).subscribe( );
+     window.location.reload()
   }
 
    getPokemons(): void {
