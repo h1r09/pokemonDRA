@@ -1,63 +1,45 @@
-<!--
+<style>
+  @import url('http://fonts.cdnfonts.com/css/pokemon-solid');
+  </style>
 
-<div *ngFor="let pokemon of pokemons">
-  <div id="cards">
-    <div *ngFor="let type of pokemon.types; let i = index"></div>
-    <figure class="card card--{{pokemon.types[0].type.name}}">
-      <div class="card__image-container">
-        <img [src]="pokemon.sprites.other.home.front_shiny" class="card__image"/>
-      </div>
+<body>
+  <!-- <table class="zigzag" >
+    <thead>
+      <tr>
+        <th class="header">Tipo</th>
+        <th class="header">Efectivo Contra</th>
+        <th class="header">Débil Contra</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let estrategia of estrategias">
+      <tr>
+        <td>{{estrategia.tipo}}</td>
+        <td>{{estrategia.efectivoContra}}</td>
+        <td>{{estrategia.debilContra}}</td>
 
-      <figcaption class="card__caption">
-        <h1 class="card__name">{{ pokemon.name }}</h1>
-        <div *ngFor="let type of pokemon.types; let i = index">
+      </tr>
 
-          <h3 class="card__type">{{pokemon.types[0].type.name}}</h3>
+    </tbody>
+  </table> -->
+
+  <div class="container">
+    <h2>Debilidades y Fortalezas <small></small></h2>
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">Tipo</div>
+        <div class="col col-2">Eficaz contra</div>
+        <div class="col col-3">Débil contra</div>
+      </li>
+
+      <li class="table-row" *ngFor="let estrategia of estrategias">
+        <div class="col col-1" data-label="tipo">{{ estrategia.tipo }}</div>
+        <div class="col col-2" data-label="Eficaz contra">
+          {{ estrategia.efectivoContra }}
         </div>
-
-
-         <table class="card__stats">
-          <tbody>
-            <tr>
-              <th>HP</th>
-              <td>55</td>
-            </tr>
-            <tr>
-              <th>Attack</th>
-              <td>55</td>
-            </tr>
-
-            <tr>
-              <th>Defense</th>
-              <td>50</td>
-            </tr>
-
-            <tr>
-              <th>Special Attack</th>
-              <td>45</td>
-            </tr>
-            <tr>
-              <th>Special Defense</th>
-              <td>65</td>
-            </tr>
-            <tr>
-              <th>Speed</th>
-              <td>55</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="card__abilities">
-          <h4 class="card__ability">
-            <span class="card__label">Ability</span>
-            Run Away
-          </h4>
-          <h4 class="card__ability">
-            <span class="card__label">Hidden Ability</span>
-            Anticipation
-          </h4>
+        <div class="col col-3" data-label="Débil contra">
+          {{ estrategia.debilContra }}
         </div>
-      </figcaption>
-    </figure>
+      </li>
+    </ul>
   </div>
-</div> -->
+</body>

@@ -29,13 +29,32 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  :hover {
+    transform: translateY(-20px);
+  }
 }
 
 .pokedexHeader {
-  width: 40%;
+  width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  :hover {
+    transform: translateY(-20px);
+  }
+}
+
+.debilidadesHeader {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  :hover {
+    transform: translateY(-20px);
+  }
 }
 
 .inside {
