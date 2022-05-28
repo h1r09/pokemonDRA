@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonService } from '../pokemon.service'; // Importamos el servicio de pokemon para poder usar sus métodos
+import { PokemonService } from '../pokemon.service';
 import { BackendService } from '../backend.service';
 import { Pokemon } from '../pokemon';
 import { Observable } from 'rxjs';
@@ -16,9 +16,7 @@ export class ListadoPokemonComponent implements OnInit {
   name: string | undefined;
 
   //declaro e inicializo un array de id de pokemons
-  vistos: any[] = []
-  // vistos2: any[] = [];
-  // vistos: Observable<Pokemon[]> = this.backHttp.getViewedPokemons();
+  vistos: any[] = [];
 
   tipos: any[] = [
     'tipoNORMAL',
@@ -52,12 +50,12 @@ export class ListadoPokemonComponent implements OnInit {
           .getPokemonByName(result.name)
           .subscribe((uniqResponse: any) => {
             this.pokemons.push(uniqResponse);
-            // console.log(this.pokemons);
+
           });
       });
     });
     this.getPokemons();
-    // console.log(this.vistos);
+
   }
 
   recargarPagina(): void {
@@ -72,7 +70,6 @@ export class ListadoPokemonComponent implements OnInit {
           .getPokemonByName(result.name)
           .subscribe((uniqResponse: any) => {
             this.pokemons.push(uniqResponse);
-            // console.log(this.pokemons);
           });
       });
     });
@@ -87,22 +84,20 @@ export class ListadoPokemonComponent implements OnInit {
           .getPokemonByName(pokemon.pokemon.name)
           .subscribe((uniqResponse: any) => {
             this.pokemons.push(uniqResponse);
-            // console.log(this.pokemons);
           });
       });
     });
     this.AllPokemons = this.pokemons;
-    // window.location.reload();
   }
 
-//  getVistos(): void {
-//   this.vistos = [];
-//   this.backHttp.getViewedPokemons().subscribe((response: any) => {
-//     response.pokemon.forEach((pokemon: any) => {
-//       this.vistos.push(pokemon.pokemon.id);
-//     });
-//   });
-// }
+  //  getVistos(): void {
+  //   this.vistos = [];
+  //   this.backHttp.getViewedPokemons().subscribe((response: any) => {
+  //     response.pokemon.forEach((pokemon: any) => {
+  //       this.vistos.push(pokemon.pokemon.id);
+  //     });
+  //   });
+  // }
 
   searchPokemon(name: string) {
     this.pokemons = this.AllPokemons.filter((pokemon: any) => {
@@ -110,11 +105,11 @@ export class ListadoPokemonComponent implements OnInit {
     });
   }
 
-  comprobarVisto(pokemon: any){
-    if(this.vistos.includes(pokemon.id)){
-      return true
-    }else{
-      return false
+  comprobarVisto(pokemon: any) {
+    if (this.vistos.includes(pokemon.id)) {
+      return true;
+    } else {
+      return false;
     }
   }
 
@@ -138,26 +133,23 @@ export class ListadoPokemonComponent implements OnInit {
 
   //metodo para guardar un pokemon en la base de datos
   savePokemon(id: number): void {
-
-      this.backHttp.savePokemon({ id } as Pokemon)
-      .subscribe(poke => {
-        this.vistos.push(poke);
-      });
-      window.location.reload();
+    this.backHttp.savePokemon({ id } as Pokemon).subscribe((poke) => {
+      this.vistos.push(poke);
+    });
+    window.location.reload();
   }
 
   removePokemon(pokemon: any): void {
-
-      this.backHttp.removePokemon(pokemon.id).subscribe( );
-     window.location.reload()
+    this.backHttp.removePokemon(pokemon.id).subscribe();
+    window.location.reload();
   }
 
-   getPokemons(): void {
-     this.backHttp.getViewedPokemons().subscribe((response: any) => {
-       response.forEach((pokemon: any) => {
-         this.vistos.push(pokemon.id);
-       });
-     });
+  getPokemons(): void {
+    this.backHttp.getViewedPokemons().subscribe((response: any) => {
+      response.forEach((pokemon: any) => {
+        this.vistos.push(pokemon.id);
+      });
+    });
   }
 
   // getPokemons(): void {

@@ -6,7 +6,6 @@ import com.hunor.pokemon.services.EstrategiaService;
 import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,15 +19,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class EstrategiaController {
 
     @Autowired(required = true)
-    // Inyección del servicio de la clase DietaService
+    // Se declara una variable de tipo EstrategiaService para poder utilizar el
+    // método retrieveEstrategia() de la clase EstrategiaService.
     private EstrategiaService estrategiaService;
 
-    // Mapeo del endpoint /dieta
+    // Método que devuelve una lista de estrategias
     @GetMapping("/data")
-    public ResponseEntity<List<EstrategiaDto>> getDieta() throws IOException {
-        // Se llama al método retrieveDieta() del servicio
-        List<EstrategiaDto> estrategiaData = estrategiaService.retrieveFrase();
-        // Se devuelve el resultado de la llamada al servicio
+    public ResponseEntity<List<EstrategiaDto>> getEstrategia() throws IOException {
+        // Se llama al método del servicio
+        List<EstrategiaDto> estrategiaData = estrategiaService.retrieveEstrategia();
+        // Se devuelve la lista de estrategias
         return new ResponseEntity<>(estrategiaData, HttpStatus.OK);
     }
 

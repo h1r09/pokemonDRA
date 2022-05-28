@@ -7,13 +7,13 @@ import { Injectable } from '@angular/core';
 export class PokemonService {
   constructor(private http: HttpClient) {}
 
-  // Métodos para obetener los pokemon desde la API
+  // Métodos para obetener los pokemon desde la API mediante un id, un nombre, un tipo o todos.
 
   // Método para obtener todos los pokemons, según veo en la API de pokeapi en 2021 el total de pokemons es 898 y de 18 tipos diferntes
   getAllPokemons() {
     return this.http.get('https://pokeapi.co/api/v2/pokemon?limit=100');
   }
-
+  // Método para obtener un número concreto de pokemons que se le pasa por parámetro
   getSomePokemons(limit: number) {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`);
   }
@@ -42,5 +42,4 @@ export class PokemonService {
   getTypeByName(name: string) {
     return this.http.get(`https://pokeapi.co/api/v2/type/${name}`);
   }
-
 }

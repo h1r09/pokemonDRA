@@ -9,5 +9,3 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RepositoryRestResource
 public interface PokemonRepository extends CrudRepository<Pokemon, Long> {
 }
-    
-

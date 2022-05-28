@@ -1,32 +1,29 @@
 package com.hunor.pokemon.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
 
 @Entity
 @Table(name = "pokemon")
 
 public class Pokemon {
-    
+
+    // Añadimos la anotación @Id para indicar que es el identificador de la tabla
+    // pokemon pero no se genera automáticamente, sino que se genera al insertar el
+    // registro ya que es el mismo id que el id del pokemon.
     @Id
-    // @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-  
-    // Creo un id secundario para el idPokemon ya que si empleo el id de la tabla pokemon, me ha dado varios errores.
-    // @NotNull(message = "Name is mandatory")
-    // private Number idPokemon;
 
-    public Pokemon() {}
+    public Pokemon() {
+    }
 
+    // Constructor que recibe el id del pokemon.
     public Pokemon(int id) {
         this.id = id;
     }
 
+    // Getters y setters de los atributos de la clase.
     public long getId() {
         return id;
     }
@@ -34,15 +31,6 @@ public class Pokemon {
     public void setId(long id) {
         this.id = id;
     }
-
-    // public Number getIdPokemon() {
-    //     return this.idPokemon;
-    // }
-
-    // public void setIdPokemon(int idPokemon) {
-    //     this.idPokemon = idPokemon;
-    // }
-
 
     @Override
     public String toString() {

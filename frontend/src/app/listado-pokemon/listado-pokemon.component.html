@@ -1,33 +1,6 @@
-<!-- creo un div para que se muestren los 18 tipos de pokemon -->
-
-<!-- <div class="tipos">
-
-  <img (click)="mostrarTodos()" src="assets/TiposPokemon/tipoALL.png" alt="" />
-  <img (click)="filtrarPokemon(1)" src="assets/TiposPokemon/tipoNORMAL.png" alt="" />
-  <img src="assets/TiposPokemon/tipoFIGHTING.png" alt="" />
-  <img src="assets/TiposPokemon/tipoFLYING.png" alt="" />
-  <img src="assets/TiposPokemon/tipoPOISON.png" alt="" />
-  <img src="assets/TiposPokemon/tipoGROUND.png" alt="" />
-  <img src="assets/TiposPokemon/tipoROCK.png" alt="" />
-  <img src="assets/TiposPokemon/tipoBUG.png" alt="" />
-  <img src="assets/TiposPokemon/tipoGHOST.png" alt="" />
-  <img src="assets/TiposPokemon/tipoSTEEL.png" alt="" />
-  <img src="assets/TiposPokemon/tipoFIRE.png" alt="" />
-  <img src="assets/TiposPokemon/tipoWATER.png" alt="" />
-  <img src="assets/TiposPokemon/tipoGRASS.png" alt="" />
-  <img src="assets/TiposPokemon/tipoELECTRIC.png" alt="" />
-  <img src="assets/TiposPokemon/tipoPSYCHIC.png" alt="" />
-  <img src="assets/TiposPokemon/tipoICE.png" alt="" />
-  <img src="assets/TiposPokemon/tipoDRAGON.png" alt="" />
-  <img src="assets/TiposPokemon/tipoDARK.png" alt="" />
-  <img src="assets/TiposPokemon/tipoFAIRY.png" alt="" />
-
-</div> -->
-
 <!-- Recorro el array tipos e imprimo las imagenes junto a los id de los tipos -->
 <!-- si cambia el orden del array tipos, no funcionaría -->
 <div class="tipos">
-  <!-- <img [routerLink]="['/pokedex']" routerLinkActive="router-link-active" src="assets/pokedex1.png" alt="" /> -->
   <img (click)="mostrarTodos()" src="assets/TiposPokemon/tipoALL.png" alt="" />
   <img
     *ngFor="let tipo of tipos; let i = index"
@@ -37,22 +10,31 @@
   />
 </div>
 
+<!-- Inserto el componente del buscador de pokemons  -->
 <app-search (emitSearch)="searchPokemon($event)"></app-search>
 
+<!-- Recorro los pokemons y obtengo todos los datos para rellenar la carta -->
 <div class="cartas" *ngFor="let pokemon of pokemons">
   <div id="cards">
     <div *ngFor="let type of pokemon.types; let i = index"></div>
     <figure class="card card--{{ pokemon.types[0].type.name }}">
+      <!-- 3 imágenes disponibles para las cartas -->
       <div class="card__image-container">
         <!-- imagen más brillante -->
-        <!-- <img [src]="pokemon.sprites.other.home.front_shiny" class="card__image"/> -->
+        <!-- <img
+          [src]="pokemon.sprites.other.home.front_shiny"
+          class="card__image"
+        /> -->
         <!-- Imagen con colores normales -->
         <img
           [src]="pokemon.sprites.other.home.front_default"
           class="card__image"
         />
         <!-- Imagen dibujos animados - Se van un poco de tamaño, al ajustar algunos quedan demasiado pequeños-->
-        <!-- <img [src]="pokemon.sprites.other.dream_world.front_default" class="card__image"/> -->
+        <!-- <img
+          [src]="pokemon.sprites.other.dream_world.front_default"
+          class="card__image"
+        /> -->
       </div>
 
       <figcaption class="card__caption">
@@ -60,7 +42,7 @@
         <div class="orden" *ngFor="let type of pokemon.types; let i = index">
           <h3 class="card__type">{{ pokemon.types[i].type.name }}</h3>
         </div>
-
+        <!-- Condicional para ver si el pokemon está en la lista de vistos o no, para poder una u otra imagen en el botón -->
         <div
           *ngIf="comprobarVisto(pokemon); then thenBlock2; else elseBlock2"
         ></div>
@@ -68,21 +50,20 @@
           ><div class="card__eye">
             <button (click)="removePokemon(pokemon)" class="button-85">
               <!-- <fa-icon [icon]="['fas', 'eye']"></fa-icon> -->
-              <img class="ojo" src="assets/checked.png" alt="">
+              <img class="ojo" src="assets/checked.png" alt="" />
             </button></div
         ></ng-template>
         <ng-template #elseBlock2
           ><div class="card__eye">
-            <button (click)="savePokemon(pokemon.id)" class="button-85" style="color: rgb(255, 255, 255);">
+            <button
+              (click)="savePokemon(pokemon.id)"
+              class="button-85"
+              style="color: rgb(255, 255, 255)"
+            >
               <!-- <fa-icon [icon]="['fas', 'eye-slash']"></fa-icon> -->
-              <img class="ojo" src="assets/notChecked.png" alt="">
+              <img class="ojo" src="assets/notChecked.png" alt="" />
             </button></div
         ></ng-template>
-
-        <!-- <div class="card__eye"><button class="button-35"><fa-icon [icon]="eyeSlash"></fa-icon></button></div> -->
-
-        <!-- <mat-fab class="card__eye">VISTO</mat-fab> -->
-        <!-- <img class="card__eye" src="assets/ojo.png" alt="" /> -->
 
         <table class="card__stats">
           <tbody>
@@ -115,10 +96,7 @@
           </tbody>
         </table>
 
-        <!-- Meter condicional para ver si pokemon.abilities === 2
-               Esto es para saber si tiene habilidad oculta o no
-          -->
-
+        <!-- Condicional para ver si el pokemon tiene 1 o 2 habilidades -->
         <div
           *ngIf="pokemon.abilities.length === 2; then thenBlock; else elseBlock"
         ></div>
