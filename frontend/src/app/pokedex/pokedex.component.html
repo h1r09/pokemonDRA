@@ -26,8 +26,8 @@
           </div>
 
           <div class="card__eye">
-            <button (click)="removePokemon(pokemon)" class="button-35">
-              <fa-icon [icon]="['fas', 'eye']"></fa-icon>
+            <button (click)="removePokemon(pokemon)" class="button-55">
+              <img class="ojo" src="assets/checked.png" alt="" />
             </button>
           </div>
           <table class="card__stats">
@@ -98,11 +98,15 @@
     <div id="cards">
       <figure class="card card--generico">
         <div class="card__image-container">
-          <!-- //<img [src]="pokemon.sprites.other.home.front_shiny" class="card__image" id="imagen"/> -->
-          <img
+
+          <!-- <img
             src="assets/gifs/pikachuEnfadado.gif"
             class="card__image"
             id="imagen"
+          /> -->
+          <img
+            [src]="pokemon.sprites.other.home.front_default"
+            class="card__image"
           />
         </div>
 
