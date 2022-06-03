@@ -137,13 +137,19 @@ export class ListadoPokemonComponent implements OnInit {
       this.vistos.push(poke);
     });
     // window.location.reload();
-    this.getPokemons();
+    //espero 2 segundos para que se actualice la lista de pokemons
+    setTimeout(() => {
+      this.getPokemons();
+    }, 1000);
+
   }
 
   removePokemon(pokemon: any): void {
     this.backHttp.removePokemon(pokemon.id).subscribe();
     // window.location.reload();
-    this.getPokemons();
+    setTimeout(() => {
+      this.getPokemons();
+    }, 1000);
   }
 
   getPokemons(): void {

@@ -92,13 +92,17 @@ export class PokedexComponent implements OnInit {
       this.vistos.push(poke);
     });
     // window.location.reload();
-    this.getPokemons();
+    setTimeout(() => {
+      this.getPokemons();
+    }, 1000);
   }
 
   removePokemon(pokemon: any): void {
     this.backHttp
       .removePokemon(pokemon.id)
       .subscribe();
-      this.getPokemons();
+      setTimeout(() => {
+        this.getPokemons();
+      }, 1000);
   }
 }
