@@ -14,113 +14,119 @@
 <app-search (emitSearch)="searchPokemon($event)"></app-search>
 
 <!-- Recorro los pokemons y obtengo todos los datos para rellenar la carta -->
-<div class="cartas" *ngFor="let pokemon of pokemons">
-  <div id="cards">
-    <div *ngFor="let type of pokemon.types; let i = index"></div>
-    <figure class="card card--{{ pokemon.types[0].type.name }}">
-      <!-- 3 imágenes disponibles para las cartas -->
-      <div class="card__image-container">
-        <!-- imagen más brillante -->
-        <!-- <img
+<div class="container">
+  <div class="cartas" *ngFor="let pokemon of pokemons">
+    <div id="cards">
+      <div *ngFor="let type of pokemon.types; let i = index"></div>
+      <figure class="card card--{{ pokemon.types[0].type.name }}">
+        <!-- 3 imágenes disponibles para las cartas -->
+        <div class="card__image-container">
+          <!-- imagen más brillante -->
+          <!-- <img
           [src]="pokemon.sprites.other.home.front_shiny"
           class="card__image"
         /> -->
-        <!-- Imagen con colores normales -->
-        <img
-          [src]="pokemon.sprites.other.home.front_default"
-          class="card__image"
-        />
-        <!-- Imagen dibujos animados - Se van un poco de tamaño, al ajustar algunos quedan demasiado pequeños-->
-        <!-- <img
+          <!-- Imagen con colores normales -->
+          <img
+            [src]="pokemon.sprites.other.home.front_default"
+            class="card__image"
+          />
+          <!-- Imagen dibujos animados - Se van un poco de tamaño, al ajustar algunos quedan demasiado pequeños-->
+          <!-- <img
           [src]="pokemon.sprites.other.dream_world.front_default"
           class="card__image"
         /> -->
-      </div>
-
-      <figcaption class="card__caption">
-        <h1 class="card__name">{{ pokemon.name }}</h1>
-        <div class="orden" *ngFor="let type of pokemon.types; let i = index">
-          <h3 class="card__type">{{ pokemon.types[i].type.name }}</h3>
         </div>
-        <!-- Condicional para ver si el pokemon está en la lista de vistos o no, para poder una u otra imagen en el botón -->
-        <div
-          *ngIf="comprobarVisto(pokemon); then thenBlock2; else elseBlock2"
-        ></div>
-        <ng-template #thenBlock2
-          ><div class="card__eye">
-            <button (click)="removePokemon(pokemon)" class="button-55">
-              <!-- <fa-icon [icon]="['fas', 'eye']"></fa-icon> -->
-              <img class="ojo" src="assets/checked.png" alt="" />
-            </button></div
-        ></ng-template>
-        <ng-template #elseBlock2
-          ><div class="card__eye">
-            <button
-              (click)="savePokemon(pokemon.id)"
-              class="button-55"
-              style="color: rgb(255, 255, 255)"
-            >
-              <!-- <fa-icon [icon]="['fas', 'eye-slash']"></fa-icon> -->
-              <img class="ojo" src="assets/notChecked.png" alt="" />
-            </button></div
-        ></ng-template>
 
-        <table class="card__stats">
-          <tbody>
-            <tr>
-              <th>HP</th>
-              <td>{{ pokemon.stats[0].base_stat }}</td>
-            </tr>
-            <tr>
-              <th>Attack</th>
-              <td>{{ pokemon.stats[1].base_stat }}</td>
-            </tr>
+        <figcaption class="card__caption">
+          <h1 class="card__name">{{ pokemon.name }}</h1>
+          <div class="orden" *ngFor="let type of pokemon.types; let i = index">
+            <h3 class="card__type">{{ pokemon.types[i].type.name }}</h3>
+          </div>
+          <!-- Condicional para ver si el pokemon está en la lista de vistos o no, para poder una u otra imagen en el botón -->
+          <div
+            *ngIf="comprobarVisto(pokemon); then thenBlock2; else elseBlock2"
+          ></div>
+          <ng-template #thenBlock2
+            ><div class="card__eye">
+              <button (click)="removePokemon(pokemon)" class="button-55">
+                <!-- <fa-icon [icon]="['fas', 'eye']"></fa-icon> -->
+                <img class="ojo" src="assets/checked.png" alt="" />
+              </button></div
+          ></ng-template>
+          <ng-template #elseBlock2
+            ><div class="card__eye">
+              <button
+                (click)="savePokemon(pokemon.id)"
+                class="button-55"
+                style="color: rgb(255, 255, 255)"
+              >
+                <!-- <fa-icon [icon]="['fas', 'eye-slash']"></fa-icon> -->
+                <img class="ojo" src="assets/notChecked.png" alt="" />
+              </button></div
+          ></ng-template>
 
-            <tr>
-              <th>Defense</th>
-              <td>{{ pokemon.stats[2].base_stat }}</td>
-            </tr>
+          <table class="card__stats">
+            <tbody>
+              <tr>
+                <th>HP</th>
+                <td>{{ pokemon.stats[0].base_stat }}</td>
+              </tr>
+              <tr>
+                <th>Attack</th>
+                <td>{{ pokemon.stats[1].base_stat }}</td>
+              </tr>
 
-            <tr>
-              <th>Special Attack</th>
-              <td>{{ pokemon.stats[3].base_stat }}</td>
-            </tr>
-            <tr>
-              <th>Special Defense</th>
-              <td>{{ pokemon.stats[4].base_stat }}</td>
-            </tr>
-            <tr>
-              <th>Speed</th>
-              <td>{{ pokemon.stats[5].base_stat }}</td>
-            </tr>
-          </tbody>
-        </table>
+              <tr>
+                <th>Defense</th>
+                <td>{{ pokemon.stats[2].base_stat }}</td>
+              </tr>
 
-        <!-- Condicional para ver si el pokemon tiene 1 o 2 habilidades -->
-        <div
-          *ngIf="pokemon.abilities.length === 2; then thenBlock; else elseBlock"
-        ></div>
-        <ng-template #thenBlock
-          ><div class="card__abilities">
-            <h4 class="card__ability">
-              <span class="card__label">Ability</span>
-              {{ pokemon.abilities[0].ability.name }}
-            </h4>
-            <h4 class="card__ability">
-              <span class="card__label">Hidden Ability</span>
-              {{ pokemon.abilities[1].ability.name }}
-            </h4>
-          </div></ng-template
-        >
-        <ng-template #elseBlock
-          ><div class="card__abilities">
-            <h4 class="card__ability">
-              <span class="card__label">Ability</span>
-              {{ pokemon.abilities[0].ability.name }}
-            </h4>
-          </div></ng-template
-        >
-      </figcaption>
-    </figure>
+              <tr>
+                <th>Special Attack</th>
+                <td>{{ pokemon.stats[3].base_stat }}</td>
+              </tr>
+              <tr>
+                <th>Special Defense</th>
+                <td>{{ pokemon.stats[4].base_stat }}</td>
+              </tr>
+              <tr>
+                <th>Speed</th>
+                <td>{{ pokemon.stats[5].base_stat }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Condicional para ver si el pokemon tiene 1 o 2 habilidades -->
+          <div
+            *ngIf="
+              pokemon.abilities.length === 2;
+              then thenBlock;
+              else elseBlock
+            "
+          ></div>
+          <ng-template #thenBlock
+            ><div class="card__abilities">
+              <h4 class="card__ability">
+                <span class="card__label">Ability</span>
+                {{ pokemon.abilities[0].ability.name }}
+              </h4>
+              <h4 class="card__ability">
+                <span class="card__label">Hidden Ability</span>
+                {{ pokemon.abilities[1].ability.name }}
+              </h4>
+            </div></ng-template
+          >
+          <ng-template #elseBlock
+            ><div class="card__abilities">
+              <h4 class="card__ability">
+                <span class="card__label">Ability</span>
+                {{ pokemon.abilities[0].ability.name }}
+              </h4>
+            </div></ng-template
+          >
+        </figcaption>
+      </figure>
+    </div>
   </div>
 </div>

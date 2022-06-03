@@ -1,164 +1,169 @@
 <app-search (emitSearch)="searchPokemon($event)"></app-search>
+<div class="container">
+  <div class="cartas" *ngFor="let pokemon of pokemons">
+    <div *ngIf="comprobarVisto(pokemon); then thenBlock; else elseBlock"></div>
 
-<div class="cartas" *ngFor="let pokemon of pokemons">
-  <div *ngIf="comprobarVisto(pokemon); then thenBlock; else elseBlock"></div>
-
-  <ng-template #thenBlock
-    ><div id="cards">
-      <div *ngFor="let type of pokemon.types; let i = index"></div>
-      <figure class="card card--{{ pokemon.types[0].type.name }}">
-        <div class="card__image-container">
-          <!-- imagen más brillante -->
-          <!-- <img [src]="pokemon.sprites.other.home.front_shiny" class="card__image"/> -->
-          <!-- Imagen con colores normales -->
-          <img
-            [src]="pokemon.sprites.other.home.front_default"
-            class="card__image"
-          />
-          <!-- Imagen dibujos animados - Se van un poco de tamaño, al ajustar algunos quedan demasiado pequeños-->
-          <!-- <img [src]="pokemon.sprites.other.dream_world.front_default" class="card__image"/> -->
-        </div>
-
-        <figcaption class="card__caption">
-          <h1 class="card__name">{{ pokemon.name }}</h1>
-          <div class="orden" *ngFor="let type of pokemon.types; let i = index">
-            <h3 class="card__type">{{ pokemon.types[i].type.name }}</h3>
+    <ng-template #thenBlock
+      ><div id="cards">
+        <div *ngFor="let type of pokemon.types; let i = index"></div>
+        <figure class="card card--{{ pokemon.types[0].type.name }}">
+          <div class="card__image-container">
+            <!-- imagen más brillante -->
+            <!-- <img [src]="pokemon.sprites.other.home.front_shiny" class="card__image"/> -->
+            <!-- Imagen con colores normales -->
+            <img
+              [src]="pokemon.sprites.other.home.front_default"
+              class="card__image"
+            />
+            <!-- Imagen dibujos animados - Se van un poco de tamaño, al ajustar algunos quedan demasiado pequeños-->
+            <!-- <img [src]="pokemon.sprites.other.dream_world.front_default" class="card__image"/> -->
           </div>
 
-          <div class="card__eye">
-            <button (click)="removePokemon(pokemon)" class="button-55">
-              <img class="ojo" src="assets/checked.png" alt="" />
-            </button>
-          </div>
-          <table class="card__stats">
-            <tbody>
-              <tr>
-                <th>HP</th>
-                <td>{{ pokemon.stats[0].base_stat }}</td>
-              </tr>
-              <tr>
-                <th>Attack</th>
-                <td>{{ pokemon.stats[1].base_stat }}</td>
-              </tr>
+          <figcaption class="card__caption">
+            <h1 class="card__name">{{ pokemon.name }}</h1>
+            <div
+              class="orden"
+              *ngFor="let type of pokemon.types; let i = index"
+            >
+              <h3 class="card__type">{{ pokemon.types[i].type.name }}</h3>
+            </div>
 
-              <tr>
-                <th>Defense</th>
-                <td>{{ pokemon.stats[2].base_stat }}</td>
-              </tr>
+            <div class="card__eye">
+              <button (click)="removePokemon(pokemon)" class="button-55">
+                <img class="ojo" src="assets/checked.png" alt="" />
+              </button>
+            </div>
+            <table class="card__stats">
+              <tbody>
+                <tr>
+                  <th>HP</th>
+                  <td>{{ pokemon.stats[0].base_stat }}</td>
+                </tr>
+                <tr>
+                  <th>Attack</th>
+                  <td>{{ pokemon.stats[1].base_stat }}</td>
+                </tr>
 
-              <tr>
-                <th>Special Attack</th>
-                <td>{{ pokemon.stats[3].base_stat }}</td>
-              </tr>
-              <tr>
-                <th>Special Defense</th>
-                <td>{{ pokemon.stats[4].base_stat }}</td>
-              </tr>
-              <tr>
-                <th>Speed</th>
-                <td>{{ pokemon.stats[5].base_stat }}</td>
-              </tr>
-            </tbody>
-          </table>
+                <tr>
+                  <th>Defense</th>
+                  <td>{{ pokemon.stats[2].base_stat }}</td>
+                </tr>
 
+                <tr>
+                  <th>Special Attack</th>
+                  <td>{{ pokemon.stats[3].base_stat }}</td>
+                </tr>
+                <tr>
+                  <th>Special Defense</th>
+                  <td>{{ pokemon.stats[4].base_stat }}</td>
+                </tr>
+                <tr>
+                  <th>Speed</th>
+                  <td>{{ pokemon.stats[5].base_stat }}</td>
+                </tr>
+              </tbody>
+            </table>
 
-          <div
-            *ngIf="
-              pokemon.abilities.length === 2;
-              then thenBlock;
-              else elseBlock
-            "
-          ></div>
-          <ng-template #thenBlock
-            ><div class="card__abilities">
-              <h4 class="card__ability">
-                <span class="card__label">Ability</span>
-                {{ pokemon.abilities[0].ability.name }}
-              </h4>
-              <h4 class="card__ability">
-                <span class="card__label">Hidden Ability</span>
-                {{ pokemon.abilities[1].ability.name }}
-              </h4>
-            </div></ng-template
-          >
-          <ng-template #elseBlock
-            ><div class="card__abilities">
-              <h4 class="card__ability">
-                <span class="card__label">Ability</span>
-                {{ pokemon.abilities[0].ability.name }}
-              </h4>
-            </div></ng-template
-          >
-        </figcaption>
-      </figure>
-    </div>
-  </ng-template>
+            <div
+              *ngIf="
+                pokemon.abilities.length === 2;
+                then thenBlock;
+                else elseBlock
+              "
+            ></div>
+            <ng-template #thenBlock
+              ><div class="card__abilities">
+                <h4 class="card__ability">
+                  <span class="card__label">Ability</span>
+                  {{ pokemon.abilities[0].ability.name }}
+                </h4>
+                <h4 class="card__ability">
+                  <span class="card__label">Hidden Ability</span>
+                  {{ pokemon.abilities[1].ability.name }}
+                </h4>
+              </div></ng-template
+            >
+            <ng-template #elseBlock
+              ><div class="card__abilities">
+                <h4 class="card__ability">
+                  <span class="card__label">Ability</span>
+                  {{ pokemon.abilities[0].ability.name }}
+                </h4>
+              </div></ng-template
+            >
+          </figcaption>
+        </figure>
+      </div>
+    </ng-template>
 
-  <ng-template #elseBlock>
-    <div id="cards">
-      <figure class="card card--generico">
-        <div class="card__image-container">
-
-          <!-- <img
+    <ng-template #elseBlock>
+      <div id="cards">
+        <figure class="card card--generico">
+          <div class="card__image-container">
+            <!-- <img
             src="assets/gifs/pikachuEnfadado.gif"
             class="card__image"
             id="imagen"
           /> -->
-          <img
-            [src]="pokemon.sprites.other.home.front_default"
-            class="card__image"
-          />
-        </div>
-
-        <figcaption class="card__caption">
-          <h1 class="card__name">?????</h1>
-          <div class="orden" *ngFor="let type of pokemon.types; let i = index">
-            <h3 class="card__type">????</h3>
+            <img
+              [src]="pokemon.sprites.other.home.front_default"
+              class="card__image"
+            />
           </div>
 
-          <table class="card__stats">
-            <tbody>
-              <tr>
-                <th>HP</th>
-                <td>??</td>
-              </tr>
-              <tr>
-                <th>Attack</th>
-                <td>??</td>
-              </tr>
+          <figcaption class="card__caption">
+            <h1 class="card__name">?????</h1>
+            <div
+              class="orden"
+              *ngFor="let type of pokemon.types; let i = index"
+            >
+              <h3 class="card__type">????</h3>
+            </div>
 
-              <tr>
-                <th>Defense</th>
-                <td>??</td>
-              </tr>
+            <table class="card__stats">
+              <tbody>
+                <tr>
+                  <th>HP</th>
+                  <td>??</td>
+                </tr>
+                <tr>
+                  <th>Attack</th>
+                  <td>??</td>
+                </tr>
 
-              <tr>
-                <th>Special Attack</th>
-                <td>??</td>
-              </tr>
-              <tr>
-                <th>Special Defense</th>
-                <td>??</td>
-              </tr>
-              <tr>
-                <th>Speed</th>
-                <td>??</td>
-              </tr>
-            </tbody>
-          </table>
+                <tr>
+                  <th>Defense</th>
+                  <td>??</td>
+                </tr>
 
-          <div class="card__abilities">
-            <h4 class="card__ability">
-              <span class="card__label">Ability</span>
-              ????
-            </h4>
-            <h4 class="card__ability">
-              <span class="card__label">Hidden Ability</span>
-              ????
-            </h4>
-          </div>
-        </figcaption>
-      </figure>
-    </div>
-  </ng-template>
+                <tr>
+                  <th>Special Attack</th>
+                  <td>??</td>
+                </tr>
+                <tr>
+                  <th>Special Defense</th>
+                  <td>??</td>
+                </tr>
+                <tr>
+                  <th>Speed</th>
+                  <td>??</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="card__abilities">
+              <h4 class="card__ability">
+                <span class="card__label">Ability</span>
+                ????
+              </h4>
+              <h4 class="card__ability">
+                <span class="card__label">Hidden Ability</span>
+                ????
+              </h4>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </ng-template>
+  </div>
 </div>

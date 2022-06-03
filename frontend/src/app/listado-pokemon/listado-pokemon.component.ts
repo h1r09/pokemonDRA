@@ -136,15 +136,18 @@ export class ListadoPokemonComponent implements OnInit {
     this.backHttp.savePokemon({ id } as Pokemon).subscribe((poke) => {
       this.vistos.push(poke);
     });
-    window.location.reload();
+    // window.location.reload();
+    this.getPokemons();
   }
 
   removePokemon(pokemon: any): void {
     this.backHttp.removePokemon(pokemon.id).subscribe();
-    window.location.reload();
+    // window.location.reload();
+    this.getPokemons();
   }
 
   getPokemons(): void {
+    this.vistos = [];
     this.backHttp.getViewedPokemons().subscribe((response: any) => {
       response.forEach((pokemon: any) => {
         this.vistos.push(pokemon.id);

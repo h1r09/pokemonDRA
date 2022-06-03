@@ -24,7 +24,7 @@ h5 {
   width: 300px;
   padding: 1em;
   border-radius: 15px;
-  margin: 60px;
+  margin: 30px;
   background: #ddd;
   text-align: left;
 
@@ -64,9 +64,6 @@ h5 {
     top: 0;
     right: 1em;
     transform: translateY(-50%);
-
-
-
   }
 
   &__label {
@@ -311,12 +308,12 @@ h5 {
     transition: 400ms;
   }
   display: inline-block;
-  margin: 29px;
-  margin-bottom: 25px;
-  padding-left: 15px;
-  padding-right: 15px;
-  width: 300px;
-  height: 300px;
+  // margin: 29px;
+  // margin-bottom: 25px;
+  // padding-left: 15px;
+  // padding-right: 15px;
+  // width: 300px;
+  // height: 300px;
   border-radius: 20px;
 }
 .tipos {
@@ -333,11 +330,10 @@ h5 {
   //    height: 130px;
   //  }
 
-   img {
-     width: 5.25%;
-     height: 6%;
-   }
-
+  img {
+    width: 5.25%;
+    height: 6%;
+  }
 
   :hover {
     transform: translateY(-20px);
@@ -353,7 +349,6 @@ h5 {
   width: 25px;
 }
 
-
 .button-55 {
   align-self: center;
   background-color: #fff;
@@ -364,7 +359,7 @@ h5 {
   border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
   border-style: solid;
   border-width: 2px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
   box-sizing: border-box;
   color: #41403e;
   cursor: pointer;
@@ -373,7 +368,7 @@ h5 {
   font-size: 1rem;
   line-height: 23px;
   outline: none;
-  padding: .75rem;
+  padding: 0.75rem;
   text-decoration: none;
   transition: all 235ms ease-in-out;
   border-bottom-left-radius: 15px 255px;
@@ -386,10 +381,14 @@ h5 {
 }
 
 .button-55:hover {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
 }
 
 .button-55:focus {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+}
+
+.container {
+  text-align: center;
 }
